@@ -10,5 +10,8 @@ class Evento(models.Model):
     data_inicio = models.DateTimeField()
     data_final = models.DateTimeField()
     local_online = models.IntegerField()
-    faixa_estaria = models.IntegerField()
+    faixa_etaria = models.IntegerField()
     id_usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "eventos"

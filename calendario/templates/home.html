@@ -2,6 +2,24 @@
 
 {% block content %}
 
-<h1>HELLO WORLD</h1>
+<div class="container mt-5">
+    <div class="col-md-12">
+        <div id="calendar"></div>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready( function() {
+      let calendar = $('#calendar').fullCalendar({
+        header: {
+             left: 'prev,next today',
+             center: 'title',
+             right: 'month,agendaWeek,agendaDay'
+         },
+      })
+    })
+</script>
 
 {% endblock %}

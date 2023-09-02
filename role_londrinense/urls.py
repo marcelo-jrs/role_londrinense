@@ -24,4 +24,5 @@ urlpatterns = [
     path('cadastro/', views.signup, name='signup'),
     path('entrar/', views.signin, name='signin'),
     path('sair/', views.signout, name='signout'),
+    path('criar-evento/', views.createEvento, name='createEvento'),
 ]

@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
+from .models import Evento
 
 
 # Create your views here.
@@ -63,3 +64,19 @@ def signup(request):
 def signout(request):
     logout(request)
     return redirect('signin')
+
+def createEvento(request):
+    if request.method == 'GET':
+        return render(request, 'evento-create.html')
+    elif request.method == 'POST':
+        evento = Evento()
+        evento.nome_evento = request.POST['nome_evento']
+        evento.descricao = request.POST['descricao']
+        evento.data_inicio = request.POST['data_inicio']
+        evento.data_final = request.POST['data_final']
+        evento.local_online = request.POST['local_online']
+        evento.faixa_etaria = request.POST['faixa_etaria']
+        evento.id_usuario = request.user
+
+        evento.save()
+        return redirect('home')

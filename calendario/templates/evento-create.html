@@ -1,0 +1,66 @@
+{% extends 'partials/menu.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="card m-5" style="width: 1000px;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <h3 class="mb-3">Cadastrar</h3>
+                    <form method="POST">
+                        {{ error }}
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="nome_evento" class="form-label">Nome do Evento</label>
+                            <input type="text" class="form-control" name="nome_evento" id="nome_evento" style="width: 625px;">
+                        </div>
+                        <div class="mb-3">
+                            <label for="descricao" class="form-label">Descrição</label>
+                            <textarea name="descricao" class="form-control" id="exampleFormControlTextarea1" rows="3" style="width: 625px;"></textarea>
+                        </div>
+                        <div class="mb-3">
+                        </div>
+                        <div class="mb-3">
+                            <label for="data_inicio" class="form-label">Data Início</label>
+                            <input type="datetime-local" class="form-control" name="data_inicio" id="data_inicio" style="width: 625px;">
+                        </div>
+                        <div class="mb-3">
+                            <label for="data_final" class="form-label">Data Final</label>
+                            <input type="datetime-local" class="form-control" name="data_final" id="data_final" style="width: 625px;">
+                        </div>
+                        <div class="mb-3">
+                            <p>O evento será Local ou Online?</p>
+                            <input class="form-check-input" type="radio" name="local_online" id="local_online" value="1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Local
+                            </label>
+                          </div>
+                          <div class="mb-3 form-check">
+                            <input class="form-check-input" type="radio" name="local_online" id="local_online" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              Online
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="faixa_etaria" class="form-label">Idade Mínima</label>
+                            <input type="number" class="form-control" name="faixa_etaria" id="faixa_etaria" style="width: 625px;">
+                            <input class="form-check-input mt-3" type="checkbox" value="" id="check_faixa_etaria">
+                            <label class="form-check-label mt-3" for="check_faixa_etaria">
+                              Livre
+                            </label>
+                          
+                        </div>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </form>
+                </div>
+                <div class="col text-center">
+                    {% load static %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
