@@ -1,0 +1,27 @@
+{% extends 'partials/menu.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="container m-5">
+    <h1>Meus Eventos</h1>
+    {% for evento in eventos %}
+
+    <div class="card m-5" style="width: 500px;">
+        {% if eventos.banner %}
+        <img src="{{evento.banner.url}}" class="card-img-top" alt="Banner do evento" style="height: 300px; width: 300px;">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{evento.nome_evento}}</h5>
+          <p class="card-text">{{evento.descricao}}</p>
+          <p class="card-text">{{evento.data_inicio}} até {{evento.data_final}}</p>
+          <a href="{% url 'editar_evento' evento.id_evento %}" class="btn btn-primary">Editar Evento</a>
+          <a href="#" class="btn btn-primary">Deletar Evento</a>
+        </div>
+      </div>
+
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

@@ -2,13 +2,12 @@
 
 {% block content %}
 
-<div class="container mt-5">
+<div class="container mt-5 teste">
     <div class="col-md-12">
         <div id="calendar"></div>
     </div>
 </div>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale/pt-br.js"></script>
 
 <script>
     $(document).ready( function() {
@@ -17,9 +16,19 @@
              left: 'prev,next today',
              center: 'title',
              right: 'month,agendaWeek,agendaDay'
-         },
+        },
+        locale: 'pt-br',
+        selectable: true,
+        selectHelper: true,
+        eventLimit: true,
+        events: 'all_events/',
+        eventClick: function(info) {
+          window.location.href = '/evento/' + info.id + '/';
+        }
       })
     })
+
 </script>
+
 
 {% endblock %}

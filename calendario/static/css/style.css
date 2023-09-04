@@ -1,0 +1,116 @@
+:root {
+  --primary: #8fb3ff;
+  --accent: #1754d9;
+  --secondary: #fdfcfc;
+  --event: #65d284
+  --background: #ffffff
+}
+
+body {
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
+background-color: var(--background);}
+
+.navbar {
+  background-color: var(--primary);
+}
+
+.navbar-brand {
+  color: #FFF;
+}
+
+table {
+  background-color: var(--secondary);
+}
+
+p {
+  color: #FFFFFF;
+  font-weight: 300; }
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
+
+a {
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease; }
+  a, a:hover {
+    text-decoration: none !important; }
+
+
+.fc-header-toolbar {
+  color: #000;
+}
+
+h2 {
+  font-size: 20px; }
+  
+.fc-unthemed td.fc-today  {
+  background-color: #f8f1f4;
+}
+
+.fc-event {
+  background-color: #65d284;
+  border: none !important;
+}
+
+.form-control:active, .form-control:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+#calendar {
+  margin: 0 auto; }
+  #calendar .fc-view-container {
+
+    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.2); }
+  #calendar .fc-toolbar.fc-header-toolbar .fc-center {
+    display: block; }
+
+#calendar-container {
+  position: fixed;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  bottom: 20px; }
+
+.fc-header-toolbar {
+  /*
+    the calendar will be butting up against the edges,
+    but let's scoot in the header's buttons
+    */
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em; }
+
+.fc-state-default {
+  background-image: none;
+  background-color: var(--accent);
+  color: #FFF;
+}
+
+.fc-today-button {
+  margin-right: 20px !important;
+}
+
+.card-evento {
+  background-color: #EEEEEE;
+}
+
+.card-evento h2, p, a {
+  color: #000;
+}
+
+strong {
+  font-weight: 700;
+}
+
+@media (max-width: 767.98px) {
+  .fc-toolbar {
+    display: block !important;
+    text-align: center; }
+    .fc-toolbar .fc-center {
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 20px; } }

@@ -17,6 +17,8 @@ Including another URLconf
 from calendario import views
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +26,9 @@ urlpatterns = [
     path('cadastro/', views.signup, name='signup'),
     path('entrar/', views.signin, name='signin'),
     path('sair/', views.signout, name='signout'),
-    path('criar-evento/', views.createEvento, name='createEvento'),
-]
+    path('criar-evento/', views.criar_evento, name='criar_evento'),
+    path('all_events/', views.get_eventos, name='get_eventos'),
+    path('evento/<int:id_evento>/', views.abrir_evento, name='abrir_evento'),
+    path('editar-evento/<int:id_evento>/', views.editar_evento, name='editar_evento'),
+    path('meus-eventos/', views.lista_evento, name='lista_evento'),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

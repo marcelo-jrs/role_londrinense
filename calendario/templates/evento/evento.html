@@ -1,0 +1,51 @@
+{% extends 'partials/menu.html' %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+  {% if evento.banner %}
+  <img src="{{ evento.banner.url }}" alt="Banner do Evento" class="img-fluid">
+  {% endif %}
+  <!-- Nome do evento -->
+  <h1 class="mt-4" >{{evento.nome_evento}}</h1>
+</div>
+<div class="container card mt-5 mb-5 card-evento">
+  <div class="row m-5 mb-0">
+    <div class="col-md-4">
+        <p><strong>Local:</strong></p>
+        <p>{{evento.endereco}}</p>
+    </div>
+    <div class="col-md-4">
+      <p><strong>Data e Horário:</strong></p>
+      <p> {{evento.data_inicio}} até</p>
+      <p> {{evento.data_final}}</p>
+    </div>
+    <div class="col-md-4">
+      <p><strong>Faixa Etária:</strong></p>
+      <p>{{evento.faixa_etaria}}</p>
+    </div>
+  </div>
+  <hr>
+  <!-- Descrição do evento -->
+  <div class="row m-5 justify-content-sm-around">
+    <div class="col-md-4 ">
+      <h3>Descrição: </h3>
+      <p>{{evento.descricao}}</p>
+    </div>
+    <div class="col-md-4">
+      <h3>Política do Evento</h3>
+      <p>L{{evento.politica}}</p>
+    </div>
+  </div>
+  <hr>
+  <!-- Política do Evento -->
+
+
+  <!-- Websites do Evento -->
+  <h3 class="m-4">Website do Evento</h3>
+  <ul class="m-4">
+      <li><a href="{{evento.website}}">Site Oficial do Evento</a></li>
+  </ul>
+</div>
+
+
+{% endblock %}
