@@ -10,10 +10,17 @@
 </div>
 <div class="container card mt-5 mb-5 card-evento">
   <div class="row m-5 mb-0">
+    {% if evento.local_online == 'Local' %}
     <div class="col-md-4">
         <p><strong>Local:</strong></p>
         <p>{{evento.endereco}}</p>
     </div>
+    {% else %}
+    <div class="col-md-4">
+      <p><strong>Local:</strong></p>
+      <p>{{evento.local_online}}</p>
+    </div>
+    {% endif %}
     <div class="col-md-4">
       <p><strong>Data e Horário:</strong></p>
       <p> {{evento.data_inicio}} até</p>
@@ -28,23 +35,38 @@
   <!-- Descrição do evento -->
   <div class="row m-5 justify-content-sm-around">
     <div class="col-md-4 ">
-      <h3>Descrição: </h3>
+      <h3><strong>Descrição:</strong></h3>
       <p>{{evento.descricao}}</p>
     </div>
     <div class="col-md-4">
-      <h3>Política do Evento</h3>
-      <p>L{{evento.politica}}</p>
+      <h3><strong>Política do Evento</strong></h3>
+      <p>{{evento.politica}}</p>
     </div>
   </div>
   <hr>
-  <!-- Política do Evento -->
-
-
-  <!-- Websites do Evento -->
-  <h3 class="m-4">Website do Evento</h3>
-  <ul class="m-4">
-      <li><a href="{{evento.website}}">Site Oficial do Evento</a></li>
-  </ul>
+  <div class="row">
+    <div class="col m-5">
+      <h3 class="m-4"><strong>Website do Evento</strong></h3>
+      <ul class="m-4">
+          <li><a href="{{evento.website}}" target="_blank">Site Oficial do Evento</a></li>
+      </ul>
+    </div>
+    <div class="col m-5">
+      <h3 class="m-4"><strong>Favorite este evento!</strong></h3>
+      {% if user.is_authenticated %}
+          <form action="{% url 'favoritar' evento.id_evento %}" method="post">
+              {% csrf_token %}
+              {% if favorito %}
+                  <button type="submit" class="btn btn-danger m-4">Remover dos Favoritos</button>
+              {% else %}
+                  <button type="submit" class="btn btn-primary m-4">Favoritar</button>
+              {% endif %}
+          </form>
+      {% else %}
+          <p>Faça login para favoritar este evento.</p>
+      {% endif %}
+    </div>
+  </div>
 </div>
 
 

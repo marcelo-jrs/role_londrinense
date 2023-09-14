@@ -1,6 +1,6 @@
 from django import forms
 from .models import Evento
-from django.forms import Textarea, TextInput, DateTimeInput, Select, NumberInput
+from django.forms import Textarea, TextInput, DateTimeInput, Select, NumberInput, FileInput
 
 class EventoForm(forms.ModelForm):
     class Meta:
@@ -28,4 +28,5 @@ class EventoForm(forms.ModelForm):
             'data_final': DateTimeInput(attrs=({"class": "form-control","type":"datetime-local"})),
             'local_online': Select(attrs=({"class": "form-control"})),
             'faixa_etaria': NumberInput(attrs=({"class": "form-control"})),
+            'banner': FileInput(attrs=({"class": "form-control"})),
         }

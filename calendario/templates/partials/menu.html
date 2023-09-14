@@ -24,11 +24,11 @@
   </head>
   <body>
     <div>
-    <nav class="navbar sticky-top">
+    <nav class="navbar sticky-top ">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">Rolê Londrinense</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon custom-toggler"></span>
         </button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
@@ -37,20 +37,22 @@
           </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              {% if verificado %}
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="meus-eventos/">Meus Eventos</a>
+                <a class="nav-link" href="{% url 'lista_evento' %}">Meus Eventos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Perfil</a>
+                <a class="nav-link" href="{% url 'criar_evento' %}">Criar Evento</a>
+              </li>
+              {% endif %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'signin' %}">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/entrar">Login</a>
+                <a class="nav-link" href="{% url 'signup' %}">Cadastrar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/cadastro">Cadastrar</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="sair/">Log out</a>
+                <a class="nav-link" href="{% url 'signout' %}">Log out</a>
               </li>
             </ul>
           </div>

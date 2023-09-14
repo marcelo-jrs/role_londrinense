@@ -28,12 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# settings.py
-DATE_FORMAT = 'd/m/Y'
-DATE_INPUT_FORMATS = ['%d/%m/%Y']
-DATETIME_INPUT_FORMATS = "%d-%m-%Y %H:%M:%S"
-USE_L10N = False
-
 
 # Application definition
 

@@ -16,7 +16,7 @@
           <p class="card-text">{{evento.descricao}}</p>
           <p class="card-text">{{evento.data_inicio}} até {{evento.data_final}}</p>
           <a href="{% url 'editar_evento' evento.id_evento %}" class="btn btn-primary">Editar Evento</a>
-          <a href="#" class="btn btn-primary">Deletar Evento</a>
+          <a href="{% url 'deletar_evento' evento.id_evento %}" class="btn btn-danger">Deletar Evento</a>
         </div>
       </div>
 

@@ -19,3 +19,12 @@ class Evento(models.Model):
 
     class Meta:
         db_table = "eventos"
+
+class Favoritos(models.Model):
+    id_favorito = models.AutoField(primary_key=True)
+    id_evento = models.ForeignKey(Evento, on_delete=models.CASCADE)
+    id_usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "favoritos"
+

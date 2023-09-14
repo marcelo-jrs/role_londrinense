@@ -30,5 +30,7 @@ urlpatterns = [
     path('all_events/', views.get_eventos, name='get_eventos'),
     path('evento/<int:id_evento>/', views.abrir_evento, name='abrir_evento'),
     path('editar-evento/<int:id_evento>/', views.editar_evento, name='editar_evento'),
+    path('deletar-evento/<int:id_evento>/', views.deletar_evento, name='deletar_evento'),
     path('meus-eventos/', views.lista_evento, name='lista_evento'),
+    path('favorito/<int:id_evento>/', views.favoritar, name='favoritar'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
