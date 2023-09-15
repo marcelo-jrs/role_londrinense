@@ -33,4 +33,5 @@ urlpatterns = [
     path('deletar-evento/<int:id_evento>/', views.deletar_evento, name='deletar_evento'),
     path('meus-eventos/', views.lista_evento, name='lista_evento'),
     path('favorito/<int:id_evento>/', views.favoritar, name='favoritar'),
+    path('favoritos/', views.acessar_favoritos, name='acessar_favoritos'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,29 @@
+{% extends 'partials/menu.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="container m-5">
+    
+    <h1>Meus Eventos Favoritos</h1>
+    {% for evento in favoritos %}
+    <div class="card m-5" style="width: 1000px; display: flex; flex-direction: row;">
+        {% if evento.id_evento.banner %}
+        <img src="{{evento.id_evento.banner.url}}" class="card-img-top" alt="Banner do evento" style="height: 500px; width: 500px; padding: 30px;">
+        {% endif %}
+        <div class="card-body">
+          <h3 class="card-title">{{evento.id_evento.nome_evento}}</h3>
+          <p class="card-text">{{evento.id_evento.descricao}}</p>
+          <p class="card-text">{{evento.id_evento.data_inicio}} até {{evento.id_evento.data_final}}</p>
+          <a href="{% url 'abrir_evento' evento.id_evento.id_evento %}" class="btn btn-primary">Acessar Evento</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="container">
+    <h2 class="m-5">Faça o login para adicionar</h2>
+</div>
+{% endif %}
+
+{% endblock %}

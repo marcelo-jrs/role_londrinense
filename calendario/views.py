@@ -167,9 +167,13 @@ def deletar_evento(request,id_evento):
 
 def lista_evento(request):
     if request.user.is_authenticated:
-        me = request.user.id
         eventos = Evento.objects.filter(id_usuario=request.user)
         return render(request, 'evento/lista-evento.html', {"eventos": eventos})
     else:
         return redirect('home')
 
+def acessar_favoritos(request):
+    if request.user.is_authenticated:
+        favoritos = Favoritos.objects.filter(id_usuario=request.user).select_related('id_evento')
+    
+    return render(request, 'evento/favoritos.html', {'favoritos': favoritos})
