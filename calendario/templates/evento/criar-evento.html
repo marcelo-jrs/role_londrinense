@@ -9,19 +9,55 @@
             <div class="row">
                 <div class="col">
                     <h3 class="mb-3">Cadastrar</h3>
-                    <form method="POST" enctype="multipart/form-data">
+                    <form method="POST" enctype="multipart/form-data" id="formEvento">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        <div id="errorEndereco" style="display: none; color: red;">O endereço é obrigatório para eventos locais.</div>
+                        <div id="errorData" style="display: none; color: red;">A data final deve ser posterior à data de início.</div>
                     </form>
                 </div>
                 <div class="col text-center">
                     {% load static %}
-
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+        $(document).ready(function () {
+            $("#id_local_online").change(function () {
+                if ($(this).val() === "Local") {
+                    $("#id_endereco").show();
+                    $("#id_endereco").prop("required", true);
+                } else {
+                    $("#id_endereco").hide();
+                    $("#id_endereco").prop("required", false);
+                }
+            });
+
+            $("#formEvento").submit(function (event) {
+                var dataInicio = new Date($("#id_data_inicio").val());
+                var dataFinal = new Date($("#id_data_final").val());
+
+                if (dataFinal <= dataInicio) {
+                    $("#errorData").show();
+                    event.preventDefault();
+                } else {
+                    $("#errorData").hide();
+                }
+
+                if ($("#idlocal_online").val() === "local" && $("#id_endereco").val().trim() === "") {
+                    $("#errorEndereco").show();
+                    event.preventDefault();
+                } else {
+                    $("#errorEndereco").hide();
+                }
+            });
+        });
+</script>
 {% endif %}
 {% endblock %}
